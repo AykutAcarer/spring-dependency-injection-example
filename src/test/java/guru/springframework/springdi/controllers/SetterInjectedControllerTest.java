@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import guru.springframework.springdi.services.GreetingService;
-import guru.springframework.springdi.services.GreetingServicesImpl;
+import guru.springframework.springdi.services.ConstructorGreetingService;
 
 class SetterInjectedControllerTest {
 
@@ -16,7 +16,7 @@ class SetterInjectedControllerTest {
 	void setUp() throws Exception {
 	
 		controller = new SetterInjectedController();
-		controller.setGreetingService(new GreetingServicesImpl());
+		controller.setGreetingService(new ConstructorGreetingService());
 	}
 
 	@Test
