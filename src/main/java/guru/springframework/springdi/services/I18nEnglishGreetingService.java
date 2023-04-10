@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
  * created by Acarer on 10.04.2023
  */
 
-@Profile("English")
+@Profile({"English", "default"})
 @Service("i18nService")
 public class I18nEnglishGreetingService implements GreetingService{
 
