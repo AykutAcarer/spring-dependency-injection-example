@@ -3,13 +3,16 @@ package guru.springframework.springdi;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
 import guru.springframework.springdi.controllers.ConstructorInjectedController;
 import guru.springframework.springdi.controllers.I18nController;
 import guru.springframework.springdi.controllers.MyController;
+import guru.springframework.springdi.controllers.PetController;
 import guru.springframework.springdi.controllers.PropertyInjectedController;
 import guru.springframework.springdi.controllers.SetterInjectedController;
 
+@ComponentScan(basePackages = {"guru.springframework.springdi", "com.springframework.pets"} )
 @SpringBootApplication
 public class SpringDiApplication {
 
@@ -17,6 +20,10 @@ public class SpringDiApplication {
 
 		ApplicationContext ctx = SpringApplication.run(SpringDiApplication.class, args);
 
+		PetController petController = ctx.getBean("petController", PetController.class);
+		System.out.println("----------The Best Pet is----------");
+		System.out.println(petController.whichPetIsTheBest());
+		
 		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
 		System.out.println(i18nController.sayHello());
 		
