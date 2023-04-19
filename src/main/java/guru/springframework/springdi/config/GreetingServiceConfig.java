@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 
+import guru.springframework.springdi.repositories.EnglishGreetingRepository;
+import guru.springframework.springdi.repositories.EnglishGreetingRepositoryImpl;
 import guru.springframework.springdi.services.ConstructorGreetingService;
 import guru.springframework.springdi.services.I18nEnglishGreetingService;
 import guru.springframework.springdi.services.I18nGermanGreetingService;
@@ -19,10 +21,16 @@ import guru.springframework.springdi.services.SetterInjectedGreetingService;
 @Configuration
 public class GreetingServiceConfig {
 	
+	@Bean
+	EnglishGreetingRepository englishGreetingRepository() {
+		
+		return new EnglishGreetingRepositoryImpl();
+	}
+	
 	@Profile({"English", "default"})
 	@Bean("i18nService")
-	I18nEnglishGreetingService i18nEnglishGreetingService() {
-		return new I18nEnglishGreetingService();
+	I18nEnglishGreetingService i18nEnglishGreetingService(EnglishGreetingRepository englishGreetingRepository) {
+		return new I18nEnglishGreetingService(englishGreetingRepository);
 	}
 	
 	@Profile("German")
