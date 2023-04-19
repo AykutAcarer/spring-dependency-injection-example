@@ -2,6 +2,7 @@ package guru.springframework.springdi.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 
@@ -21,6 +22,7 @@ import guru.springframework.springdi.services.SetterInjectedGreetingService;
  * created by Acarer on 19.04.2023
  */
 
+@ImportResource("classpath:sfgdi-config.xml")
 @Configuration
 public class GreetingServiceConfig {
 	
@@ -64,10 +66,10 @@ public class GreetingServiceConfig {
 		return new PrimaryGreetingService();
 	}
 
-	@Bean
-	ConstructorGreetingService constructorGreetingService() {
-		return new ConstructorGreetingService();
-	}
+	//@Bean
+	//ConstructorGreetingService constructorGreetingService() {----> XML Config
+	//	return new ConstructorGreetingService();
+	//}
 	
 	@Bean
 	PropertyInjectedGreetingService propertyInjectedGreetingService() {
