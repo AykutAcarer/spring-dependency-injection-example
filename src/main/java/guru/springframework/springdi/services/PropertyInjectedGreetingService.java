@@ -1,8 +1,9 @@
 package guru.springframework.springdi.services;
 
-import org.springframework.stereotype.Service;
+/**
+ * created by Acarer on 15.04.2023
+ */
 
-@Service
 public class PropertyInjectedGreetingService implements GreetingService{
 
 	@Override
