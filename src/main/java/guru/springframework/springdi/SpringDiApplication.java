@@ -12,7 +12,7 @@ import guru.springframework.springdi.controllers.PetController;
 import guru.springframework.springdi.controllers.PropertyInjectedController;
 import guru.springframework.springdi.controllers.SetterInjectedController;
 
-@ComponentScan(basePackages = {"guru.springframework.springdi", "com.springframework.pets"} )
+//@ComponentScan(basePackages = {"guru.springframework.springdi", "com.springframework.pets"} )
 @SpringBootApplication
 public class SpringDiApplication {
 
